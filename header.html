@@ -1,0 +1,38 @@
+<div id=D__ID>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container"> <a id=logo_0 style='cursor:pointer'><img src="images/sleepfix-logo.png" width="auto" height="45px" alt=""></a>
+            <!-- <button type="button" id=btn1_0 class="btn btn-outline-light">SLEEPFIX STUDY PAGE</button>-->
+        </div>
+    </nav>
+<script>
+        /*menu item process*/
+        $('#menu a').on('click',function(e){
+            e.preventDefault();
+            var h=$(this).html();
+            var d=$(this).attr('href');
+            if(d!='dev'){
+                alert(h+" is called");
+            }
+            else{
+                //--------------------------------
+                var hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
+                $vm={}
+                $vm.module_list={
+                    header:{url:hosting_path+"/header.html"},
+                    footer:{url:hosting_path+"/footer.html"},
+                    home:{url:hosting_path+"/home.html"},
+                }
+                //--------------------------------
+                var path=window.location.href.split('?')[0].replace('/index.html','')
+                localStorage.setItem("__temp1001_"+path,JSON.stringify($vm.module_list));
+                window.open('/index.html?path='+path)
+                //--------------------------------
+            }
+        })
+    </script>
+    <style>
+        #menu a{
+            margin-right:20px;
+        }
+    </style>
+</div>
