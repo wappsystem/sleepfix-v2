@@ -12,7 +12,7 @@
         <!-- contents will be dynamically loaded into this area -->
         <div id=layout>
             <div id=header></div>
-            <div id=content></div>
+            <div id=content1></div>
             <div id=footer></div>
         </div>
         <!----------------------------------------------->
@@ -21,7 +21,7 @@
             var hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             $.get(hosting_path+"/header.html",function(code){ $('#header').html(code.replace(/__ID/g, (_id++).toString())); },'text');
             $.get(hosting_path+"/footer.html",function(code){ $('#footer').html(code.replace(/__ID/g, (_id++).toString())); },'text');
-            $.get(hosting_path+"/policy.html",function(code){ $('#content').html(code.replace(/__ID/g, (_id++).toString())); },'text');
+            $.get(hosting_path+"/policy.html",function(code){ $('#content1').html(code.replace(/__ID/g, (_id++).toString())); },'text');
         </script>
         <!----------------------------------------------->
         <style>
@@ -60,7 +60,7 @@
                 background: unset;
                 z-index: 1030;*/
             }
-            #content{
+            #content1{
                 position:absolute; top:80px; bottom:80px; left:0px; right:0px; overflow:auto;
                 /*padding-top:80px;*/
             }
